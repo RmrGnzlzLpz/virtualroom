@@ -1,0 +1,32 @@
+<label>INICIALIZAR INSTITUCION</label>
+
+<input type="file" (change)="onFileChange($event)" multiple="false" />
+	<!-- <table class="sjs-table">
+		<tbody>
+      <tr *ngFor="let row of data[0]">
+			<td *ngFor="let val of row">
+				{{val}}
+			</td>
+		</tr>
+    </tbody>
+	</table> -->
+
+  <table class="sjs-table">
+		<tbody>   
+    
+			<tr *ngFor="let val of sedes">				
+        <td>
+          {{val.nombre}}
+        </td>
+        <td>
+         	{{val.direccion}}
+        </td>
+        <td>
+         	{{val.telefono}}
+        </td>
+
+			</tr>
+	
+    </tbody>
+	</table>
+	<button (click)="subir()">Subir Datos</button>

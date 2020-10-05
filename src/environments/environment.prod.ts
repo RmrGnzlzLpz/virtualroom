@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://soft-academic-api.herokuapp.com/api/'
 };

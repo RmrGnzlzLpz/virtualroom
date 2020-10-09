@@ -9,7 +9,7 @@ export class Directivo{    /**
         public nombres:string,
         public apellidos: string,
         public cargo: string,
-           
+        public email: string
     ) {
         
         

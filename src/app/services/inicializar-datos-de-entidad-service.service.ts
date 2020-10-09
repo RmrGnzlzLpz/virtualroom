@@ -13,28 +13,28 @@ import { Asignatura } from '../entities/asignatura';
   providedIn: 'root'
 })
 export class InicializarDatosDeEntidadServiceService {
-  RegistrarAsignaturas(asignaturas: Asignatura[]) {
+  constructor(private  httpClient: HttpClient) { }
+  RegistrarAsignaturas(request: any) {
     const url = environment.baseUrl + 'asignatura';
-    return this.httpClient.post<any>(url, asignaturas);
+    return this.httpClient.post<any>(url, request);
   }
-  RegistrarGrupos(grupos:Grupo[]) : Observable<any> {
+  RegistrarGrupos(request:any) : Observable<any> {
     const url = environment.baseUrl + 'grupo';
-    return this.httpClient.post<any>(url, grupos);
+    return this.httpClient.post<any>(url, request);
   }
-  RegistrarEstudiantes(estudiantes: Estudiante[]): Observable<any>  {
+  RegistrarEstudiantes(request: any): Observable<any>  {
     const url = environment.baseUrl + 'estudiante';
-    return this.httpClient.post<any>(url, estudiantes);
+    return this.httpClient.post<any>(url, request);
   }
-  RegistrarDocentes(docentes: Docente[]): Observable<any>  {
+  RegistrarDocentes(request: any): Observable<any>  {
     const url = environment.baseUrl + 'docente';
-    return this.httpClient.post<any>(url, docentes);
+    return this.httpClient.post<any>(url, request);
   }
-  RegistrarDirectivos(directivos: Directivo[]) : Observable<any> {
+  RegistrarDirectivos(request: any) : Observable<any> {
     const url = environment.baseUrl + 'directivo';
-    return this.httpClient.post<any>(url, directivos);
+    return this.httpClient.post<any>(url, request);
   }
 
-  constructor(private  httpClient: HttpClient) { }
 
   RegistrarInstitucion(institucion: Institucion): Observable<any> {
     const url = environment.baseUrl + 'institucion';

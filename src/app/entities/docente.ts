@@ -7,7 +7,8 @@ export class Docente{
     constructor(
         public numeroCedula: string,
         public nombres:string,
-        public apellidos: string,       
+        public apellidos: string,   
+        public email: string    
     ) {
         
     }

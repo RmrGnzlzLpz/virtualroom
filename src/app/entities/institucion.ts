@@ -4,15 +4,14 @@ import { Sede } from './sede';
 
 export class Institucion{
     
-
+    public sedes: Sede[];
     /**
      *
      */
     constructor(public nit: string,
         public dane: string,
         public nombre:string,
-        public codigoMunicipio:string,        
-        public sedes: Sede[],
+        public codigoMunicipio:string,                
         public paginaWeb:string ) {       
 
     }

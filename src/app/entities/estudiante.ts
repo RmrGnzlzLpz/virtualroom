@@ -1,5 +1,5 @@
 export class Estudiante{
-
+    public errado: boolean;
     /**
      *
      */
@@ -9,7 +9,13 @@ export class Estudiante{
         public apellidos: string,
         public nombres: string,
         public grado : string,
-        public grupo: string
+        public grupo: string,
+        public institucionNit: string,
+        public sede: string,
+        public email:string,
     ) {
+        if (!tipoDocumento || !identificacion || !apellidos || !nombres || !grado || !grupo) {
+            this.errado = true;
+        }
     }
 }

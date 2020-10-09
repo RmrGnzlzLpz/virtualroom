@@ -15,7 +15,7 @@
 			</tr>
 			<tr>				
 				<td>
-					<button (click)="subir()">Subir Datos al Servidor</button>
+					<button [disabled]="!isValid" (click)="subir()">Subir Datos al Servidor</button>
 				</td>	
 			</tr>
 	

@@ -10,7 +10,8 @@ export class Sede{
         public direccion: string,
         public telefono: string
     ) {
-        
+        this.telefono = this.telefono?.toString();
+        this.nit = this.nit?.toString();
     }
 
 }

@@ -11,7 +11,7 @@ import { InicializarDatosDeEntidadServiceService } from './services/inicializar-
 @NgModule({
   declarations: [
     AppComponent,
-    InicializarDatosDeEntidadesComponent
+    InicializarDatosDeEntidadesComponent,
   ],
   imports: [
     BrowserModule,

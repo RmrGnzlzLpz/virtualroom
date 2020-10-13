@@ -1,24 +1,72 @@
+<div class="container mt-5">
+	<h1 class="display-1">Cargar datos.</h1>
+	<div class="input-group my-5">
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+		</div>
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"
+				(change)="onFileChange($event)" multiple="false"
+				accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+			<label class="custom-file-label" for="inputGroupFile01">Seleccionar archivo{{ ": " +nombreArchivo}}</label>
+		</div>
+		<button class="btn btn-primary ml-2" [disabled]="!isValid" (click)="subir()">Subir Datos al Servidor</button>
+	</div>
 
+	<div *ngIf="errorMessage" class="alert alert-danger my-4" role="alert">
+		<span [innerHTML]="errorMessage"></span>
+	</div>
 
+	<div *ngIf="isValid">
 
+		<div class="alert alert-success my-4" role="alert">
+			Se ha cargado con éxito el archivo.
+		</div>
+	</div>
+	<div *ngIf="responseAlmacenamiento" [class]="'alert alert-'+[classResponse]+' my-4'" role="alert">
+		<span>{{responseAlmacenamiento}}</span>
+	</div>
 
-
-  <table class="sjs-table">
-		<tbody>   
-			<tr> 
-				<td>
-					<label>SELECCIONAR ARCHIVOS</label>
-				</td>
-				<td>
-					<input type="file" (change)="onFileChange($event)" multiple="false" />
-				</td>
-			</tr>
-			<tr>				
-				<td>
-					<button [disabled]="!isValid" (click)="subir()">Subir Datos al Servidor</button>
-				</td>	
-			</tr>
-	
-    	</tbody>
-	</table>
-	
+	<div *ngIf="datosInvalidosSede.length > 0">
+		<h1 class="display-4">Se han encontrado datos inválidos en las siguientes lineas</h1>
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Sedes</h4>
+			<span *ngFor="let datoInvalido of datosInvalidosSede">{{datoInvalido.indice}}, </span>
+		</div>
+	</div>
+	<div *ngIf="datosInvalidosDirectivo.length > 0">
+		<h1 class="display-4">Se han encontrado datos inválidos en las siguientes lineas</h1>
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Directivos</h4>
+			<span *ngFor="let datoInvalido of datosInvalidosDirectivo">{{datoInvalido.indice}}, </span>
+		</div>
+	</div>
+	<div *ngIf="datosInvalidosDocente.length > 0">
+		<h1 class="display-4">Se han encontrado datos inválidos en las siguientes lineas</h1>
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Docentes</h4>
+			<span *ngFor="let datoInvalido of datosInvalidosDocente">{{datoInvalido.indice}}, </span>
+		</div>
+	</div>
+	<div *ngIf="datosInvalidosAsignatura.length > 0">
+		<h1 class="display-4">Se han encontrado datos inválidos en las siguientes lineas</h1>
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Asignaturas</h4>
+			<span *ngFor="let datoInvalido of datosInvalidosAsignatura">{{datoInvalido.indice}}, </span>
+		</div>
+	</div>
+	<div *ngIf="datosInvalidosGrupo.length > 0">
+		<h1 class="display-4">Se han encontrado datos inválidos en las siguientes lineas</h1>
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Grupos</h4>
+			<span *ngFor="let datoInvalido of datosInvalidosGrupo">{{datoInvalido.indice}}, </span>
+		</div>
+	</div>
+	<div *ngIf="datosInvalidosEstudiante.length > 0">
+		<h1 class="display-4">Se han encontrado datos inválidos en las siguientes lineas</h1>
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Estudiantes</h4>
+			<span *ngFor="let datoInvalido of datosInvalidosEstudiante">{{datoInvalido.indice}}, </span>
+		</div>
+	</div>
+</div>

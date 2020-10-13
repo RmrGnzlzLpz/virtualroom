@@ -13,7 +13,7 @@ export class AuthHttpInterceptor implements HttpInterceptor {
 
   constructor(private router: Router) { }
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEwODI0ODAxNjYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFc3R1ZGlhbnRlIiwianRpIjoiZWU3ZGU5MGUtOTRhOS00NzVlLWI1NmUtZTc0YjgxNDMwN2FmIiwiZXhwIjoxNjAyMjk5OTYyLCJpc3MiOiJ5b3VyZG9tYWluLmNvbSIsImF1ZCI6InlvdXJkb21haW4uY29tIn0._qoHHeuqxZH6XZDAvlL0bPNhcXVY2iyp7qZz67MHjzM";
+    const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEwODI0ODAxNjYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJFc3R1ZGlhbnRlIiwianRpIjoiOTdlMmUyMjYtZjc4Ni00YjI5LTliM2ItNjM0NDBiMTY4MzQ2IiwiZXhwIjoxNjAyNjQwODQ4LCJpc3MiOiJ5b3VyZG9tYWluLmNvbSIsImF1ZCI6InlvdXJkb21haW4uY29tIn0.gyKnZjud6fTOAkjL9riKZdTLUmcjSZY5TGG6qdFGU88";
     const authRequest = req.clone({ setHeaders: { authorization: `Bearer ${jwt}` } });
     console.log(jwt);
 		return next.handle(authRequest)
